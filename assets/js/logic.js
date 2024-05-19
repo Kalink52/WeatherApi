@@ -51,8 +51,8 @@ function activeCity(city){
     let date = city.list[0].dt_txt
 
     const cityObject =
-    $(`<div class="fw-bold p-2"> ${city.city.name} ${city.list[0].dt_txt}</div>
-        <div class="fw-bold p-2">temp: ${tempInF}° F</div>
+    $(`<div class="fw-bold p-2"> ${city.city.name} ${dayjs(city.list[0].dt_txt).format('DD/MM/YYYY')}</div>
+        <div class="fw-bold p-2">Temp: ${tempInF}° F</div>
         <div class="fw-bold p-2">Wind: ${city.list[0].wind.speed}MPH</div>
         <div class="fw-bold p-2">Humidity: ${city.list[0].main.humidity}%</div>
         `)
@@ -87,7 +87,7 @@ function fivedayforcast (city){
     const cityCard =
     $(` <div class="col-2 card bg-primary text-white">
             <div class="card-body p-0">
-            <h5 class="card-title"> ${city.list[i].dt_txt}</h5>
+            <h5 class="card-title"> ${dayjs(city.list[i].dt_txt).format('DD/MM/YYYY')}</h5>
             <p>${wEmoji} </p>
             <p class="card-text">
                 Temp: ${tempInF}°K <br> 
@@ -116,8 +116,7 @@ function setHistory(){
     // console.log(citiesStorage)
 
     for (let i = 0; i < citiesStorage.length; i++) {
-        // console.log('mlkm')
-
+        // console.log('mlkm')`
         const cityHistory =
     $(` <button type="button" class="btn bg-dark-subtle col-12 mt-1" 
     onclick="historyButton(event)">${citiesStorage[i]}</button>`)
@@ -136,11 +135,10 @@ function setHistory(){
     getLocation(userCity.value)
 }
 function historyButton(event){
-    console.log(event.target.outerText)
+    // console.log(event.target.outerText)
     getLocation(event.target.outerText)
     
  }
 // update this to userinput
 // getLocation(city)
-
 
