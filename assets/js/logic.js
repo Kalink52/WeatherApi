@@ -115,7 +115,11 @@ function setHistory(){
     // console.log('here')
     // console.log(citiesStorage)
 
-    for (let i = 0; i < citiesStorage.length; i++) {
+    // console.log(userCity.value)
+    citiesStorage.push(userCity.value)
+
+    localStorage.setItem("cities", JSON.stringify(citiesStorage));
+    for (let i = (citiesStorage.length -1); i > 0; i--) {
         // console.log('mlkm')`
         const cityHistory =
     $(` <button type="button" class="btn bg-dark-subtle col-12 mt-1" 
@@ -123,15 +127,13 @@ function setHistory(){
     
     $('#formHistory').append(cityHistory)
 }
-    while (citiesStorage.length > 5){
+    while (citiesStorage.length > 6){
         citiesStorage.splice(0,1)
+        // break
         // console.log('remove')
 
     }
 
-    // console.log(userCity.value)
-    citiesStorage.push(userCity.value)
-    localStorage.setItem("cities", JSON.stringify(citiesStorage));
     getLocation(userCity.value)
 }
 function historyButton(event){
