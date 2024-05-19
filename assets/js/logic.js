@@ -119,11 +119,12 @@ function setHistory(){
     citiesStorage.push(userCity.value)
 
     localStorage.setItem("cities", JSON.stringify(citiesStorage));
+
     for (let i = (citiesStorage.length -1); i > 0; i--) {
         // console.log('mlkm')`
         const cityHistory =
-    $(` <button type="button" class="btn bg-dark-subtle col-12 mt-1" 
-    onclick="historyButton(event)">${citiesStorage[i]}</button>`)
+        $(` <button type="button" class="btn bg-dark-subtle col-12 mt-1" 
+        onclick="historyButton(event)">${citiesStorage[i]}</button>`)
     
     $('#formHistory').append(cityHistory)
 }
