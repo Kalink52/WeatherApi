@@ -1,9 +1,11 @@
 # WeatherApi
 
+allows user to search a city and gives 5 day forcast for that city
+
 ## Usage
 [https://kalink52.github.io/WeatherApi/](https://kalink52.github.io/WeatherApi/)
 
-Input information into the username, title, and content areas 
+
 
 ![alt text](./assets/pictures/screenshot.png)
 
