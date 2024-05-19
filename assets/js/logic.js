@@ -16,7 +16,7 @@ if (citiesStorage == null) {
 
 
 function getLocation(city) {
-    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${apiKey}`)
+    fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${apiKey}`)
     .then(function (response){
         return response.json();
     })
@@ -32,7 +32,7 @@ function getWeather(geodata) {
     let lat = geodata[0].lat
     let lon = geodata[0].lon
 
-    fetch(`http://api.openweathermap.org/data/2.5/forecast/?lat=${lat}&lon=${lon}&appid=${apiKey}`)
+    fetch(`https://api.openweathermap.org/data/2.5/forecast/?lat=${lat}&lon=${lon}&appid=${apiKey}`)
     .then(function (response){
         return response.json();
     })
@@ -68,7 +68,7 @@ function fivedayforcast (city){
 
 
     for (let i=4; i<40; i=i+8){
-        // console.log(city.list[i].weather[0].main)
+        console.log()
         //convert temp to F
     let tempInF = ((Number(city.list[i].main.temp) - 273.15) * 9/5 + 32).toFixed(0)
     
@@ -84,6 +84,8 @@ function fivedayforcast (city){
             wEmoji = '☀️'
           // code block
       } 
+
+    //   wEmoji= city.list[0].weather[0].icon
     const cityCard =
     $(` <div class="col-2 card bg-primary text-white">
             <div class="card-body p-0">
